@@ -1,15 +1,16 @@
 
+// importing packages
 import 'package:fluttercrud/db_helper/database_connection.dart';
 import 'package:sqflite/sqflite.dart';
-// crate the basic DB operations
 
-
+// Crate the basic DB operations //
 class Repository {
   late DatabaseConnection_databaseConnection;
   Repository(){
     _databaseConnection= DatabaseConnection();
   }
 
+  // Dfine the database vaiyable 
   static Database? _database;
   Future<Database?>get database async {
     if(_database !=null) {
@@ -19,6 +20,7 @@ class Repository {
       return _database;
     }
   }
+
   // insert fuintion 
   insertData(table, data) async{
     var connection = await database;
